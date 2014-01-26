@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Omrails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>One Month Rails</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+		<body>
+		<%=render 'layouts/header'%>
 
-<%= yield %>
+		<div class="container">
 
-</body>
+			<%= flash.each do |name, msg|%>
+			  <%= content_tag(:div, msg, class: "alert alert-#{name}")%>
+      <% end %>
+			<%= yield %>
+			<%=render 'layouts/footer'%>
+		<div class="container">
+
+		
+		</body>
 </html>
+
